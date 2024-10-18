@@ -10,12 +10,54 @@
 </head>
 <body>
 
+<!-- Moving Geometrical Background -->
+<div class="background">
+    <div class="square"></div>
+    <div class="circle"></div>
+    <div class="triangle"></div>
+</div>
+
 <div class="container">
     <h1>Formulaire d'analyse des ventes</h1>
+    
     <form id="machineForm">
         <div class="mb-3">
             <label for="telemetrie" class="form-label">Télécharger le fichier de télémétrie :</label>
             <input type="file" class="form-control" id="fileUpload" accept=".xlsx" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="machines" class="form-label">Télécharger le fichier des machines complètes (CSV Microsoft) :</label>
+            <input type="file" class="form-control" id="machineFile" accept=".csv">
+        </div>
+
+        <div class="mb-3">
+            <label for="date" class="form-label">Entrez la date d'aujourd'hui (JJ/MM/AAAA):</label>
+            <input type="text" class="form-control" id="date" placeholder="JJ/MM/AAAA" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="periode" class="form-label">Vérifier les ventes sur :</label>
+            <select id="periode" class="form-select">
+                <option value="jours">Jours</option>
+                <option value="semaine">Semaine</option>
+                <option value="mois">Mois</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="valeur" class="form-label">Combien de jours/semaines/mois ? :</label>
+            <input type="text" class="form-control" id="valeur" placeholder="Entrez un nombre" required>
+        </div>
+
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="inclure_1_9">
+            <label class="form-check-label" for="inclure_1_9">Inclure les ventes de 1.9</label>
+        </div>
+
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="join_machines">
+            <label class="form-check-label" for="join_machines">Joindre avec le fichier des machines complètes</label>
         </div>
 
         <button type="button" class="btn btn-primary w-100" onclick="processFile()">Afficher le nombre de machines</button>

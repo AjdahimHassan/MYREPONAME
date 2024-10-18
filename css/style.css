@@ -1,9 +1,75 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* Fullscreen for each slide */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
     background-color: #f0f8ff;
-    color: #333;
+    position: relative;
 }
 
+/* Background geometrical shapes */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.square, .circle, .triangle {
+    position: absolute;
+    opacity: 0.6;
+    animation: moveShape 15s infinite ease-in-out;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 69, 0, 0.7);
+    top: 20%;
+    left: 10%;
+    animation-duration: 12s;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(30, 144, 255, 0.7);
+    border-radius: 50%;
+    top: 50%;
+    left: 60%;
+    animation-duration: 16s;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid rgba(0, 128, 0, 0.7);
+    top: 70%;
+    left: 30%;
+    animation-duration: 20s;
+}
+
+/* Animation for the shapes */
+@keyframes moveShape {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(300px, 200px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Form styling */
 .container {
     max-width: 900px;
     margin: 50px auto;
